@@ -1,0 +1,20 @@
+# Go binaries and DB
+server_bin
+server/server_bin
+*.db
+*.db-journal
+
+# SvelteKit and Node
+.svelte-kit/
+web/.svelte-kit/
+web/build/
+web/node_modules/
+node_modules/
+
+# Ignore embedded build files except placeholder
+server/cmd/server/build/*
+!server/cmd/server/build/placeholder.txt
+
+# Local environments
+.env
+.DS_Store

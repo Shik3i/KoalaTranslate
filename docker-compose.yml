@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  koalatranslate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: koalatranslate
+    ports:
+      - "8080:8080"
+    volumes:
+      - koala_data:/data
+    env_file:
+      - .env
+    restart: unless-stopped
+
+volumes:
+  koala_data:
+    driver: local
