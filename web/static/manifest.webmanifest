@@ -1,0 +1,23 @@
+{
+  "name": "KoalaTranslate",
+  "short_name": "KoalaTranslate",
+  "description": "In-context translation portal for KoalaStuff projects.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {
+      "src": "/icons/koalatranslate-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/koalatranslate-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

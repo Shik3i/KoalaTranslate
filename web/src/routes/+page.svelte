@@ -251,8 +251,8 @@
 
     <!-- Locale Selector -->
     <div class="nav-section">
-      <label>Target Locale</label>
-      <select bind:value={translationState.locale} class="locale-select">
+      <label for="target-locale">Target Locale</label>
+      <select id="target-locale" bind:value={translationState.locale} class="locale-select">
         {#each locales as loc}
           <option value={loc.code}>
             {loc.isSource ? '🇬🇧' : '🌐'} {loc.name} ({loc.code})
@@ -263,7 +263,7 @@
 
     <!-- Screen Simulator Selector -->
     <div class="nav-section flex-1">
-      <label>Visual Screens</label>
+      <span class="section-label">Visual Screens</span>
       <nav class="screen-links">
         <button 
           class="screen-link" 
@@ -383,7 +383,12 @@
 
   <!-- IMPORT MODAL DRAWER -->
   {#if showImportModal}
-    <div class="modal-overlay" onclick={() => { showImportModal = false }}>
+    <div
+      class="modal-overlay"
+      role="presentation"
+      onclick={() => { showImportModal = false }}
+      onkeydown={(event) => { if (event.key === 'Escape') showImportModal = false }}
+    >
       <!-- svelte-ignore a11y_click_events_have_key_events -->
       <!-- svelte-ignore a11y_no_static_element_interactions -->
       <div class="modal-card glass-panel" onclick={e => e.stopPropagation()}>
@@ -398,7 +403,7 @@
 
         <form onsubmit={handleImportSubmit}>
           <div class="form-group">
-            <label>Import Method</label>
+            <span class="section-label">Import Method</span>
             <div class="import-tabs">
               <button 
                 type="button"
@@ -474,7 +479,12 @@
 
   <!-- EXPORT MODAL DRAWER -->
   {#if showExportModal}
-    <div class="modal-overlay" onclick={() => { showExportModal = false }}>
+    <div
+      class="modal-overlay"
+      role="presentation"
+      onclick={() => { showExportModal = false }}
+      onkeydown={(event) => { if (event.key === 'Escape') showExportModal = false }}
+    >
       <!-- svelte-ignore a11y_click_events_have_key_events -->
       <!-- svelte-ignore a11y_no_static_element_interactions -->
       <div class="modal-card glass-panel" onclick={e => e.stopPropagation()}>
@@ -591,6 +601,7 @@
     margin: 0;
     letter-spacing: -0.5px;
     background: linear-gradient(135deg, #a855f7, #6366f1);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -616,6 +627,15 @@
   }
   .nav-section {
     margin-bottom: 20px;
+  }
+  .section-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
   }
   .locale-select {
     width: 100%;

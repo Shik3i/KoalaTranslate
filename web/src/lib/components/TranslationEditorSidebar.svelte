@@ -118,14 +118,15 @@
     <div class="editor-body">
       <!-- Reference Source -->
       <div class="field-group">
-        <label>Source Locale (English)</label>
+        <span class="field-label">Source Locale (English)</span>
         <div class="source-bubble">{item.sourceValue || '(Empty)'}</div>
       </div>
 
       <!-- Target Input -->
       <div class="field-group">
-        <label>Target Translation ({translationState.locale.toUpperCase()})</label>
+        <label for="translation-value">Target Translation ({translationState.locale.toUpperCase()})</label>
         <textarea 
+          id="translation-value"
           bind:value={currentText}
           rows="4"
           placeholder="Type translation here..."
@@ -232,6 +233,7 @@
     overflow-y: auto;
     flex: 1;
   }
+  .field-group .field-label,
   .field-group label {
     margin-bottom: 6px;
   }
