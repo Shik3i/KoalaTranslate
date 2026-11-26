@@ -2,6 +2,8 @@ module koalatranslate
 
 go 1.26.9
 
+toolchain go1.26.11
+
 require (
 	golang.org/x/crypto v0.57.0
 	modernc.org/sqlite v1.60.1
